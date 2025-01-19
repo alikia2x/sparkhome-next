@@ -1,4 +1,4 @@
-import { Suggestion } from "search-engine-autocomplete";
+import React from "react";
 
 interface settingsType extends object {
 	version: number;
@@ -12,14 +12,14 @@ interface settingsType extends object {
 	};
 }
 
-interface suggestionsResponse extends object {
+interface SuggestionsResponse extends object {
 	suggestions: Suggestion[];
 	query: string;
 	verbatimRelevance: number;
 	time: number;
 }
 
-type suggestionItem = {
+interface SuggestionItem {
 	suggestion: string;
 	type: string;
 	relativeRelevance?: number;

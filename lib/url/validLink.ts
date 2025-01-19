@@ -1,41 +1,33 @@
 import { toASCII } from "tr46";
 import { getTLD } from "./tldList";
 
+console.log(getTLD());
+
 export default function validLink(link: string) {
 	let finalURL;
 	try {
-		const url = new URL(link);
-		finalURL = url;
+		new URL(link);
 		return true;
 	} catch (error) {
 		// if the URL is invalid, try to add the protocol
 		try {
-			const urlWithHTTP = new URL("http://" + link);
-			finalURL = urlWithHTTP;
+			finalURL = new URL("http://" + link);
 		} catch (error) {
 			return false;
 		}
 	}
 	if (finalURL.host.endsWith(".")) return false;
-	if (
-		validTLD(finalURL.host) ||
+	return validTLD(finalURL.host) ||
 		isValidIPv6(link.slice(1, finalURL.host.length - 1)) ||
-		isValidIPv4(link)
-	) {
-		return true;
-	}
-	return false;
+		isValidIPv4(link);
+
 }
 
 export function validTLD(domain: string): boolean {
 	if (!domain.includes(".")) return false;
 	const tld = toASCII(domain.split(".").reverse()[0]);
 	const tldList = getTLD();
-	if (tldList.includes(tld.toUpperCase())) {
-		return true;
-	} else {
-		return false;
-	}
+	return !!tldList.includes(tld.toUpperCase());
 }
 
 export function isValidIPv6(ip: string): boolean {
@@ -69,10 +61,8 @@ export function isValidIPv6(ip: string): boolean {
 			return false;
 		}
 	}
-	if (doubleColonCount === 0 && groups !== 8) {
-		return false;
-	}
-	return true;
+	return !(doubleColonCount === 0 && groups !== 8);
+
 }
 
 export function isValidIPv4(ip: string): boolean {

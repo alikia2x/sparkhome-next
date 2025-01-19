@@ -33,7 +33,26 @@
 	"about": {
 		"title": "About sparkast",
 		"license": {
-			"view": "→ view"
+			"title": "License",
+			"view": "→ view",
+			"text": "GPL 3.0"
+		},
+		"presented-by": "Presented By",
+		"backend-api-version": "Backend API Version",
+		"client-version": "Client API Version",
+		"oss": {
+			"title": "OSS Statement",
+			"view": "→ View"
 		}
+	},
+	"license": {
+		"title": "License - sparkast",
+		"desc": "sparkast is open source software. It is licensed under the GPL 3.0 license. You can view the full license text below.",
+		"page-title": "License"
+	},
+	"oss_license": {
+		"title": "OSS Licenses - sparkast",
+		"desc": "This birth of this project would not have been possible without the following open source software. This page shows the licenses of the open source software used in sparkast.",
+		"page-title": "OSS Licenses"
 	}
 }

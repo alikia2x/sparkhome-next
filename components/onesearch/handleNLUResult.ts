@@ -1,10 +1,10 @@
-import { suggestionItem } from "global";
+import { SuggestionItem } from "global";
 import { findClosestDateIndex } from "lib/weather/getCurrentWeather";
 import { getLocationNative } from "lib/weather/getLocation";
 import { getWeather } from "lib/weather/getWeather";
 import { WMOCodeTable } from "lib/weather/wmocode";
 
-type UpdateSuggestionFunction = (data: suggestionItem[]) => void;
+type UpdateSuggestionFunction = (data: SuggestionItem[]) => void;
 
 export function handleNLUResult(result: any, updateSuggestion: UpdateSuggestionFunction) {
 	if (result.intent == "weather.summary") {

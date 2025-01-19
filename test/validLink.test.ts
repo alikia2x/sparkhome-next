@@ -60,6 +60,7 @@ describe("Check if the given TLD exist and assigned.", () => {
 		expect(validTLD("example.foo")).toBe(true);
 		expect(validTLD("example.bar")).toBe(true);
 		expect(validTLD("example.zip")).toBe(true);
+		expect(validTLD("xn--s8w913fdga.chn.moe")).toBe(true);
 	});
 	test("Exist but not assigned TLD", () => {
 		expect(validTLD("example.active")).toBe(false);

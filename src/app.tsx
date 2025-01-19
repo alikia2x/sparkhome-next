@@ -3,7 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./i18n";
 import Homepage from "pages";
 import AboutPage from "pages/about";
-import LicensePage from "pages/about/license";
+import OSSLicensesPage from "pages/about/license/OSS";
+import ThisProjectLicensePage from "../pages/about/license/ThisProject.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -11,14 +12,16 @@ const router = createBrowserRouter([
 		element: <Homepage />
 	},
 	{
-		path: "about",
+		path: "/about",
 		element: <AboutPage />,
-		children: [
-			{
-				path: "license",
-				element: <LicensePage />
-			}
-		]
+	},
+	{
+		path: "/about/oss-licenses",
+		element: <OSSLicensesPage />
+	},
+	{
+		path: "/about/license",
+		element: <ThisProjectLicensePage />
 	}
 ]);
 

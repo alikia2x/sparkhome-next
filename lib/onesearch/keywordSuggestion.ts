@@ -1,4 +1,4 @@
-import { suggestionItem } from "global";
+import { SuggestionItem } from "global";
 
 interface keywordLinkDict {
 	[key: string]: string;
@@ -15,7 +15,7 @@ const dict_cn: keywordLinkDict = {
 export function keywordSuggestion(query: string) {
 	for (const keyword in dict_cn) {
 		if (query.includes(keyword)) {
-			const result: suggestionItem = {
+			const result: SuggestionItem = {
 				type: "inpage-link",
 				suggestion: dict_cn[keyword],
 				prompt: keyword,
@@ -26,7 +26,7 @@ export function keywordSuggestion(query: string) {
 	}
 	for (const keyword in dict_en) {
 		if (query.includes(keyword)) {
-			const result: suggestionItem = {
+			const result: SuggestionItem = {
 				type: "inpage-link",
 				suggestion: dict_en[keyword],
 				prompt: keyword,

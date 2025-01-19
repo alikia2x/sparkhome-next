@@ -1,7 +1,37 @@
 import useDarkMode from "lib/darkModeHook";
-import getVersion, { apiVersion, clientNLUVersion } from "lib/version";
+import { apiVersion, clientVersion } from "lib/version";
 import AboutLayout from "./layout";
 import { useTranslation } from "react-i18next";
+
+function License() {
+	const { t } = useTranslation();
+	return (
+		<>
+			<p className="flex items-center my-4">
+				<span className="font-medium text-2xl md:text-2xl mr-4 w-[36rem]">
+					{t("about.oss.title")}
+				</span>
+				<span
+					className="relative font-bold px-2 py-1 rounded-md text-nowrap underline
+                     bg-green-600 text-white"
+				>
+					<a href="/about/oss-licenses">{t("about.oss.view")}</a>
+				</span>
+			</p>
+			<p className="flex items-center my-4">
+				<span className="font-medium text-2xl md:text-2xl mr-4 w-[36rem]">
+					{t("about.license.title")}
+				</span>
+				<span
+					className="relative font-bold px-2 py-1 rounded-md text-nowrap underline
+                     bg-red-500 text-white"
+				>
+					<a href="/about/license">{t("about.license.text")}</a>
+				</span>
+			</p>
+		</>
+	);
+}
 
 export default function AboutPage() {
 	const darkMode = useDarkMode();
@@ -26,47 +56,41 @@ export default function AboutPage() {
 				</div>
 			</div>
 
-			<Version title="Frontend Version" version={getVersion()} versionClass="bg-red-500" />
 			<Version
-				title="Browser NLU Model Version"
-				version={"Build " + clientNLUVersion}
+				title={t("about.backend-api-version")}
+				version={"/api/v" + apiVersion}
 				versionClass="bg-purple-500"
 			/>
+
 			<Version
-				title="Backend API Version"
-				version={"/api/v" + apiVersion}
+				title={t("about.client-version")}
+				version={clientVersion}
 				versionClass="bg-orange-500"
 			/>
-			<p className="flex items-center my-3">
-				<span className="font-bold text-xl md:text-2xl mr-4 w-[36rem]">License</span>
-				<span
-					className="relative px-2 py-1 text-sm font-bold rounded-md text-nowrap underline
-                     bg-green-600 text-white"
-				>
-					<a href="/about/license">{t("about.license.view")}</a>
-				</span>
-			</p>
 
-			<p className="relative font-bold text-2xl mt-12">Presented By</p>
+			<License />
+
+			<p className="relative font-bold text-2xl mt-12">{t("about.presented-by")}</p>
 			{!darkMode && (
 				<img src="/assets/img/LuminaraStudio.png" className="relative md:h-64 mt-6" />
 			)}
 			{darkMode && (
-				<img src="/assets/img/LuminaraStudioDark.png" className="relative md:h-56 mt-6" />
+				<img src="/assets/img/LuminaraStudioDark.png" className="relative md:h-64 mt-6" />
 			)}
 		</AboutLayout>
 	);
 }
 
 function Version(props: { title: string; version: string; versionClass?: string }) {
-	document.title = "About SparkHome";
 	const { t } = useTranslation();
 	return (
-		<p className="flex items-center my-3">
-			<span className="font-bold text-xl md:text-2xl mr-4 w-[36rem]">{t(props.title)}</span>
+		<p className="flex items-center my-4">
+			<span className="font-medium text-2xl md:text-2xl mr-4 w-[36rem]">
+				{t(props.title)}
+			</span>
 			<span
 				className={
-					"relative px-2 py-1 text-sm font-bold rounded-md text-nowrap text-white " +
+					"relative px-2 py-1 font-bold rounded-md text-nowrap text-white " +
 						props.versionClass || ""
 				}
 			>

@@ -13,6 +13,7 @@ export default function Homepage() {
 
 	return (
 		<div className="h-screen w-screen overflow-x-hidden bg-white dark:bg-[rgb(23,25,29)]">
+			<title>sparkast</title>
 			<Background />
 
 			<EngineSelector
