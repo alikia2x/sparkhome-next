@@ -5,6 +5,7 @@ import Homepage from "pages";
 import AboutPage from "pages/about";
 import OSSLicensesPage from "pages/about/license/OSS";
 import ThisProjectLicensePage from "../pages/about/license/ThisProject.tsx";
+import { HeroUIProvider } from "@heroui/react";
 
 const router = createBrowserRouter([
 	{
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "/about",
-		element: <AboutPage />,
+		element: <AboutPage />
 	},
 	{
 		path: "/about/oss-licenses",
@@ -28,7 +29,9 @@ const router = createBrowserRouter([
 export function App() {
 	return (
 		<div className="relative bg-white dark:bg-black dark:text-white min-h-screen w-screen">
-			<RouterProvider router={router} />
+			<HeroUIProvider>
+				<RouterProvider router={router} />
+			</HeroUIProvider>
 		</div>
 	);
 }

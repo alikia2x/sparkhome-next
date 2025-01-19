@@ -1,50 +1,35 @@
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { settingsAtom } from "lib/state/settings";
 import { engineTranslation } from "lib/onesearch/translatedEngineList";
-import { settingsType } from "global";
-import { useAtomValue, useSetAtom } from "jotai";
-import Picker, { PickedItem } from "./picker";
+import { SettingsType } from "global";
+import { useAtomValue } from "jotai";
 
-export default function EngineSelector(props: { className: string }) {
+import {Select, SelectItem} from "@heroui/react";
+
+
+export default function EngineSelector() {
 	const { t } = useTranslation();
-	const settings: settingsType = useAtomValue(settingsAtom);
-	const engines = settings.searchEngines;
-	const currentEngine: string = settings.currentSearchEngine;
-	const [selected, setSelected] = useState(currentEngine);
-	const setSettings = useSetAtom(settingsAtom);
-	let engineList: PickedItem = {};
-	for (const engineKey of Object.keys(engines)) {
-		engineList[engineKey] = getName(engineKey);
-	}
+	const settings: SettingsType = useAtomValue(settingsAtom);
 
 	function getName(engineKey: string) {
 		return engineTranslation.includes(engineKey) ? t(`search.engine.${engineKey}`) : engineKey;
 	}
 
-	useEffect(() => {
-		function setEngine(engine: string) {
-			setSettings((oldSettings: settingsType) => {
-				return {
-					...oldSettings,
-					currentSearchEngine: engine
-				};
-			});
-		}
-		if (selected !== currentEngine) {
-			setEngine(selected);
-		}
-	}, [currentEngine, selected, setSettings]);
-
 	return (
-		<Picker
-			selectionItems={engineList}
-			selected={selected}
-			selectionOnChange={(selected) => {
-				setSelected(selected);
-			}}
-			displayContent={getName(selected)}
-			className={props.className}
-		/>
+		<Select
+			className="max-w-xs"
+			items={settings.searchEngines}
+			label="Assigned to"
+			labelPlacement="outside"
+			placeholder="Select a user"
+		>
+			{(engine) => (
+				<SelectItem key={engine.url} textValue={engine.name}>
+					<span>{getName(engine.name)}</span>
+				</SelectItem>
+			)}
+		</Select>
 	);
 }
+
+

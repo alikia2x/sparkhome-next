@@ -1,6 +1,5 @@
 import type { Config } from "tailwindcss";
-
-import { nextui } from "@nextui-org/react";
+import { heroui } from "@heroui/react";
 
 const config: Config = {
 	content: [
@@ -17,6 +16,6 @@ const config: Config = {
 			}
 		}
 	},
-	plugins: [nextui()]
+	plugins: [heroui()]
 };
 export default config;

@@ -1,6 +1,6 @@
 import React from "react";
 
-interface settingsType extends object {
+interface SettingsTypeV2 extends object {
 	version: number;
 	elementBackdrop: boolean;
 	bgBlur: boolean;
@@ -10,6 +10,22 @@ interface settingsType extends object {
 	searchEngines: {
 		[key: string]: string;
 	};
+}
+
+interface SettingsType extends object {
+	version: number;
+	elementBackdrop: boolean;
+	bgBlur: boolean;
+	timeShowSecond: boolean;
+	currentSearchEngine: string;
+	searchInNewTab: boolean;
+	searchEngines: SearchEngine[];
+}
+
+type SearchEngine = {
+	name: string;
+	url: string;
+	hidden: boolean;
 }
 
 interface SuggestionsResponse extends object {

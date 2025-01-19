@@ -1,4 +1,4 @@
-import { settingsType, SuggestionItem } from "global";
+import { SettingsType, SuggestionItem } from "global";
 import copyToClipboard from "lib/copy";
 import { normalizeURL } from "lib/normalizeURL";
 import search from "lib/search";
@@ -7,7 +7,7 @@ export default function (
 	index: number,
 	suggestion: SuggestionItem[],
 	_query: string,
-	settings: settingsType,
+	settings: SettingsType,
 	searchBoxRef: React.RefObject<HTMLInputElement>
 ) {
 	const selected = suggestion[index];
