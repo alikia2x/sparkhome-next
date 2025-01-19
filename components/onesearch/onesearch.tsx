@@ -89,7 +89,7 @@ export default function OneSearch() {
 					type: "default-link",
 					suggestion: query,
 					relevance: 3000,
-					prompt: <span>Go to: </span>
+					prompt: <span>{t('search.goto-help-text')}</span>
 				},
 				{ type: "default", suggestion: query, relevance: 1600 }
 			]);

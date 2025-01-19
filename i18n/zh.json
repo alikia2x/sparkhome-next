@@ -14,7 +14,8 @@
       "yahoo": "雅虎",
       "ecosia": "Ecosia"
     },
-    "search-help-text": "用 {engine} 搜索"
+    "search-help-text": "用 {engine} 搜索",
+    "goto-help-text": "前往: "
   },
   "tools": {
     "base64": {

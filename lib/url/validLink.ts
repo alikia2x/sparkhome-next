@@ -1,8 +1,6 @@
 import { toASCII } from "tr46";
 import { getTLD } from "./tldList";
 
-console.log(getTLD());
-
 export default function validLink(link: string) {
 	let finalURL;
 	try {

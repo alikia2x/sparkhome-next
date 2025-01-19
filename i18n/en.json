@@ -14,7 +14,8 @@
 			"yahoo": "Yahoo",
 			"ecosia": "Ecosia"
 		},
-		"search-help-text": "Search {engine}"
+		"search-help-text": "Search {engine}",
+		"goto-help-text": "Go to: "
 	},
 	"notfound": {
 		"title": "page not found",

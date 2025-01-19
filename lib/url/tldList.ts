@@ -1,5 +1,7 @@
-import TLDtxt from "./tlds.txt";
+import * as data from "./tlds.json";
 
 export function getTLD() {
-	return TLDtxt.split("\r\n").filter((line) => line[0] !== "#");
+	return data.data;
 }
+
+console.log(getTLD());

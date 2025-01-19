@@ -9,6 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "NODE_ENV=production bun server.ts",
     "license-gen": "bunx generate-license-file --input package.json --output lib/license.txt --overwrite",
+    "update-tld": "bun lib/url/updateTLD.ts",
     "format": "prettier --write ."
   },
   "dependencies": {
