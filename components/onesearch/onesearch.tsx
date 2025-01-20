@@ -11,7 +11,7 @@ import { useAtom, useAtomValue } from "jotai";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { keywordSuggestion } from "lib/onesearch/keywordSuggestion";
-import { searchboxLastInputAtom } from "lib/state/searchboxLastInput"
+import { searchboxLastInputAtom } from "lib/state/searchboxLastInput";
 import SuggestionComponent from "./SuggestionItem.tsx";
 import { searchEngineAtom } from "../../lib/state/searchEngine.ts";
 
@@ -88,7 +88,7 @@ export default function OneSearch() {
 					type: "default-link",
 					suggestion: query,
 					relevance: 3000,
-					prompt: <span>{t('search.goto-help-text')}</span>
+					prompt: <span>{t("search.goto-help-text")}</span>
 				},
 				{ type: "default", suggestion: query, relevance: 1600 }
 			]);

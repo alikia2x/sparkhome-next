@@ -8,13 +8,9 @@ describe("Check if a string is an accessible domain/URL/IP", () => {
 		// With https and path
 		expect(validLink("https://jestjs.io/docs/getting-started/")).toBe(true);
 		// With anchor
-		expect(validLink("https://difftastic.wilfred.me.uk/zh-CN/git.html#git-difftool")).toBe(
-			true
-		);
+		expect(validLink("https://difftastic.wilfred.me.uk/zh-CN/git.html#git-difftool")).toBe(true);
 		// With params
-		expect(
-			validLink("https://www.bilibili.com/list/ml2252204359?oid=990610203&bvid=BV1sx4y1g7Hh")
-		).toBe(true);
+		expect(validLink("https://www.bilibili.com/list/ml2252204359?oid=990610203&bvid=BV1sx4y1g7Hh")).toBe(true);
 	});
 	test("Punycode URL", () => {
 		expect(validLink("https://原神大学.com/")).toBe(true);

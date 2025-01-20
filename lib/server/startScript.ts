@@ -14,8 +14,7 @@ export async function getLocalhostAddressIfDiffersFromDNS(): Promise<string | un
 		dns.lookup("localhost"),
 		dns.lookup("localhost", { verbatim: true })
 	]);
-	const isSame =
-		nodeResult.family === dnsResult.family && nodeResult.address === dnsResult.address;
+	const isSame = nodeResult.family === dnsResult.family && nodeResult.address === dnsResult.address;
 	return isSame ? undefined : nodeResult.address;
 }
 

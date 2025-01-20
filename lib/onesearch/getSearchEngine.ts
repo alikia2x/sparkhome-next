@@ -1,10 +1,9 @@
 import { engineTranslation } from "lib/onesearch/translatedEngineList";
-import i18next from 'i18next';
+import i18next from "i18next";
 import { SearchEngine } from "global";
 
 export function getLocalizedSearchEngineName(engine: SearchEngine) {
-	const displayEngine = getName(engine.name);
-	return displayEngine;
+	return getName(engine.name);
 }
 
 function getName(engineKey: string) {

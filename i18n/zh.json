@@ -1,59 +1,59 @@
 {
-  "404": {
-    "title": "页面未找到"
-  },
-  "search": {
-    "placeholder": "搜索或输入网址",
-    "engine-aria": "切换搜索引擎",
-    "engine": {
-      "google": "谷歌",
-      "baidu": "百度",
-      "bing": "必应",
-      "duckduckgo": "DuckDuckGo",
-      "yandex": "Yandex",
-      "yahoo": "雅虎",
-      "ecosia": "Ecosia"
-    },
-    "search-help-text": "用 {engine} 搜索",
-    "goto-help-text": "前往: "
-  },
-  "tools": {
-    "base64": {
-      "title": "Base64 工具",
-      "decode": "解码",
-      "encode": "编码",
-      "result": "结果： ",
-      "copy": "复制",
-      "copied": "已复制"
-    }
-  },
-  "notfound": {
-    "desc": "请检查网址是否出错。 <br/>如果你从星火主页跳转到这里，<br/> 请 <a style=\"text-decoration:underline;\" href=\"mailto:contact@alikia2x.com\">联系我们</a>",
-    "title": "网页不存在"
-  },
-  "about": {
-    "title": "关于 sparkast",
-    "oss": {
-      "title": "开源软件声明",
-      "view": "→ 查看"
-    },
-    "license": {
-      "title": "许可证",
-      "text": "GPL 3.0",
-      "view": "→ 查看"
-    },
-    "presented-by": "出品",
-    "backend-api-version": "后端 API 版本",
-    "client-version": "客户端 API 版本"
-  },
-  "license": {
-    "title": "开源许可证 - sparkast",
-    "page-title": "开源许可证",
-    "desc": "sparkast 是开源软件。它根据 GPL 3.0 许可证获得许可。您可以在下面查看完整的许可文本。"
-  },
-  "oss_license": {
-    "title": "开源软件声明 - sparkast",
-    "page-title": "开源软件声明",
-    "desc": "本项目的诞生离不开开源软件。此页面显示 sparkast 中使用的开源软件的许可证。"
-  }
+	"404": {
+		"title": "页面未找到"
+	},
+	"search": {
+		"placeholder": "搜索或输入网址",
+		"engine-aria": "切换搜索引擎",
+		"engine": {
+			"google": "谷歌",
+			"baidu": "百度",
+			"bing": "必应",
+			"duckduckgo": "DuckDuckGo",
+			"yandex": "Yandex",
+			"yahoo": "雅虎",
+			"ecosia": "Ecosia"
+		},
+		"search-help-text": "用 {engine} 搜索",
+		"goto-help-text": "前往: "
+	},
+	"tools": {
+		"base64": {
+			"title": "Base64 工具",
+			"decode": "解码",
+			"encode": "编码",
+			"result": "结果： ",
+			"copy": "复制",
+			"copied": "已复制"
+		}
+	},
+	"notfound": {
+		"desc": "请检查网址是否出错。 <br/>如果你从星火主页跳转到这里，<br/> 请 <a style=\"text-decoration:underline;\" href=\"mailto:contact@alikia2x.com\">联系我们</a>",
+		"title": "网页不存在"
+	},
+	"about": {
+		"title": "关于 sparkast",
+		"oss": {
+			"title": "开源软件声明",
+			"view": "→ 查看"
+		},
+		"license": {
+			"title": "许可证",
+			"text": "GPL 3.0",
+			"view": "→ 查看"
+		},
+		"presented-by": "出品",
+		"backend-api-version": "后端 API 版本",
+		"client-version": "客户端 API 版本"
+	},
+	"license": {
+		"title": "开源许可证 - sparkast",
+		"page-title": "开源许可证",
+		"desc": "sparkast 是开源软件。它根据 GPL 3.0 许可证获得许可。您可以在下面查看完整的许可文本。"
+	},
+	"oss_license": {
+		"title": "开源软件声明 - sparkast",
+		"page-title": "开源软件声明",
+		"desc": "本项目的诞生离不开开源软件。此页面显示 sparkast 中使用的开源软件的许可证。"
+	}
 }

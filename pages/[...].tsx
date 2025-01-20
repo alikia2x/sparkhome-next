@@ -9,10 +9,7 @@ export default function NotFound() {
 				<div className="relative h-20 mx-4 w-[0.15rem] bg-black dark:bg-white"></div>
 				<div className="flex flex-col">
 					<div className="uppercase text-3xl font-light">{t("notfound.title")}</div>
-					<div
-						className="text-sm"
-						dangerouslySetInnerHTML={{ __html: t("notfound.desc") }}
-					></div>
+					<div className="text-sm" dangerouslySetInnerHTML={{ __html: t("notfound.desc") }}></div>
 				</div>
 			</div>
 		</div>

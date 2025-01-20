@@ -3,11 +3,7 @@ import search from "lib/search";
 import { settingsAtom } from "lib/state/settings";
 import { searchEngineAtom } from "lib/state/searchEngine.ts";
 
-export default function PlainSearch(props: {
-	children: React.ReactNode;
-	query: string;
-	selected: boolean;
-}) {
+export default function PlainSearch(props: { children: React.ReactNode; query: string; selected: boolean }) {
 	const settings = useAtomValue(settingsAtom);
 	const engine = useAtomValue(searchEngineAtom);
 	const newTab = settings.searchInNewTab;

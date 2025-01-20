@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function Time(props: { showSecond: boolean, style?: "default" | "image" }) {
+export default function Time(props: { showSecond: boolean; style?: "default" | "image" }) {
 	const style = props.style || "default";
 	if (style == "image") {
-		return (
-			<TimeImage showSecond={props.showSecond}/>
-		)
-	}
-	else {
-		return <TimeDefault showSecond={props.showSecond}/>
+		return <TimeImage showSecond={props.showSecond} />;
+	} else {
+		return <TimeDefault showSecond={props.showSecond} />;
 	}
 }
 
@@ -46,7 +43,6 @@ function TimeImage(props: { showSecond: boolean }) {
 		</div>
 	);
 }
-
 
 function TimeDefault(props: { showSecond: boolean }) {
 	const [currentTime, setCurrentTime] = useState(new Date());

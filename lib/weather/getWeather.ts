@@ -7,8 +7,7 @@ export async function getWeather(lat: number, lon: number) {
 		const parsedLocalData = JSON.parse(localData);
 		if (
 			parsedLocalData["hourly"]["time"][0] != undefined &&
-			new Date().getTime() - new Date(parsedLocalData["hourly"]["time"][0]).getTime() <
-				86400 * 1000
+			new Date().getTime() - new Date(parsedLocalData["hourly"]["time"][0]).getTime() < 86400 * 1000
 		) {
 			return parsedLocalData;
 		} else {

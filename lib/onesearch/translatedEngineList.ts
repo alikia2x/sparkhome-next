@@ -1,9 +1,1 @@
-export const engineTranslation = [
-	"google",
-	"bing",
-	"baidu",
-	"duckduckgo",
-	"yandex",
-	"ecosia",
-	"yahoo"
-];
+export const engineTranslation = ["google", "bing", "baidu", "duckduckgo", "yandex", "ecosia", "yahoo"];

@@ -27,7 +27,7 @@ type SearchEngine = {
 	name: string;
 	url: string;
 	hidden: boolean;
-}
+};
 
 interface SuggestionsResponse extends object {
 	suggestions: Suggestion[];
@@ -45,4 +45,4 @@ interface SuggestionItem {
 	intention?: string | null;
 	probability?: number;
 	confidence?: number;
-};
+}

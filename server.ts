@@ -17,9 +17,7 @@ async function helloMessage() {
 	console.log(`  ${chalk.redBright("➜  Local:")} ${chalk.cyan(`http://${name}:${port}${base}`)}`);
 	if (host === undefined) {
 		ips.forEach((ip) =>
-			console.log(
-				`  ${chalk.redBright("➜  Network:")} ${chalk.cyan(`http://${ip}:${port}${base}`)}`
-			)
+			console.log(`  ${chalk.redBright("➜  Network:")} ${chalk.cyan(`http://${ip}:${port}${base}`)}`)
 		);
 	}
 	console.log(`  ${chalk.red("➜  ")}${chalk.whiteBright("press h + enter to show help")}`);
@@ -49,10 +47,7 @@ const cli = cac();
 const nets = networkInterfaces();
 const ips: string[] = Object.values(nets)
 	.flat()
-	.filter(
-		(net) =>
-			!!net && net.family === (typeof net.family === "string" ? "IPv4" : 4) && !net.internal
-	)
+	.filter((net) => !!net && net.family === (typeof net.family === "string" ? "IPv4" : 4) && !net.internal)
 	.map((net) => (!!net ? net.address : undefined))
 	.filter((v) => v !== undefined);
 

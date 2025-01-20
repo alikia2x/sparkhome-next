@@ -15,10 +15,7 @@ export default function validLink(link: string) {
 		}
 	}
 	if (finalURL.host.endsWith(".")) return false;
-	return validTLD(finalURL.host) ||
-		isValidIPv6(link.slice(1, finalURL.host.length - 1)) ||
-		isValidIPv4(link);
-
+	return validTLD(finalURL.host) || isValidIPv6(link.slice(1, finalURL.host.length - 1)) || isValidIPv4(link);
 }
 
 export function validTLD(domain: string): boolean {
@@ -60,7 +57,6 @@ export function isValidIPv6(ip: string): boolean {
 		}
 	}
 	return !(doubleColonCount === 0 && groups !== 8);
-
 }
 
 export function isValidIPv4(ip: string): boolean {

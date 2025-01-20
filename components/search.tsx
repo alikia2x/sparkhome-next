@@ -9,12 +9,12 @@ import { useTranslation } from "react-i18next";
 import { searchboxLastInputAtom } from "lib/state/searchboxLastInput";
 import { searchEngineAtom } from "../lib/state/searchEngine.ts";
 
-export default function Search({ onFocus, style }: {onFocus: () => void, style: "default" | "image"}) {
+export default function Search({ onFocus, style }: { onFocus: () => void; style: "default" | "image" }) {
 	const { t } = useTranslation();
 	const settings = useAtomValue(settingsAtom);
 	const [query, setQuery] = useAtom(queryAtom);
 	const [selectedSuggestion, setSelected] = useAtom(selectedSuggestionAtom);
-	const [_, setLastInput] = useAtom(searchboxLastInputAtom)
+	const [_, setLastInput] = useAtom(searchboxLastInputAtom);
 	const suggestions = useAtomValue(suggestionAtom);
 	const searchBoxRef = useRef<HTMLInputElement>(null);
 	const engine = useAtomValue(searchEngineAtom);

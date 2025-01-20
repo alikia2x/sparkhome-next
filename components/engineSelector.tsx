@@ -23,13 +23,13 @@ export default function EngineSelector() {
 						return {
 							...prev,
 							currentSearchEngine: id.currentKey!
-						}
-					})
+						};
+					});
 				}}
 				selectorIcon={<></>}
 			>
 				{(engine) => (
-					<SelectItem className="w-36" key={engine.id} title={getLocalizedSearchEngineName(engine)}/>
+					<SelectItem className="w-36" key={engine.id} title={getLocalizedSearchEngineName(engine)} />
 				)}
 			</Select>
 		</div>
