@@ -7,7 +7,7 @@ import { bgFocusAtom } from "lib/state/background";
 import EngineSelector from "components/engineSelector";
 import OneSearch from "components/onesearch/onesearch";
 import { useEffect, useState } from "react";
-import { SettingsTypeV2 } from "../global";
+import { SettingsTypeV2 } from "global";
 
 export default function Homepage() {
 	const [settings, setSettings] = useAtom(settingsAtom);

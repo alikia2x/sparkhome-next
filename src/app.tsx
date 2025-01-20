@@ -1,11 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import "./i18n";
 import Homepage from "pages";
 import AboutPage from "pages/about";
 import OSSLicensesPage from "pages/about/license/OSS";
 import ThisProjectLicensePage from "../pages/about/license/ThisProject.tsx";
-import { HeroUIProvider } from "@heroui/react";
+import { Provider } from "components/ui/provider";
 
 const router = createBrowserRouter([
 	{
@@ -29,9 +28,9 @@ const router = createBrowserRouter([
 export function App() {
 	return (
 		<div className="relative bg-white dark:bg-black dark:text-white min-h-screen w-screen">
-			<HeroUIProvider>
+			<Provider>
 				<RouterProvider router={router} />
-			</HeroUIProvider>
+			</Provider>
 		</div>
 	);
 }

@@ -1,0 +1,6 @@
+components/ui
+public
+*.txt
+*.md
+*.json
+*.yaml
