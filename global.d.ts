@@ -23,6 +23,7 @@ interface SettingsType extends object {
 }
 
 type SearchEngine = {
+	id: string;
 	name: string;
 	url: string;
 	hidden: boolean;

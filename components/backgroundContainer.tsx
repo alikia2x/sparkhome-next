@@ -20,19 +20,21 @@ export default function BackgroundContainer(props: {
 		);
 	} else if (validUrl.isWebUri(props.src)) {
 		return (
-			<img
-				src={props.src}
-				className={
-					"w-full h-full fixed object-cover inset-0 duration-200 z-0 " +
-					(props.isFocus
-						? settings.bgBlur
-							? "blur-lg scale-110"
-							: "brightness-50 scale-105"
-						: "")
-				}
-				alt="background"
-				onClick={props.onClick}
-			/>
+			<div className="w-screen h-screen absolute bg-black">
+				<img
+					src={props.src}
+					className={
+						"w-screen h-screen fixed object-cover inset-0 duration-200 z-0 " +
+						(props.isFocus
+							? settings.bgBlur
+								? "blur-lg scale-110"
+								: "brightness-50 scale-105"
+							: "")
+					}
+					alt="background"
+					onClick={props.onClick}
+				/>
+			</div>
 		);
 	} else {
 		if (props.darkMode) {

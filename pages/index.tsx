@@ -29,7 +29,7 @@ export default function Homepage() {
 					<Background />
 
 					<EngineSelector />
-					<Search onFocus={() => setBgFocus(true)} />
+					<Search onFocus={() => setBgFocus(true)} style="default"/>
 					<Time showSecond={settings.timeShowSecond} />
 					<OneSearch />
 				</>

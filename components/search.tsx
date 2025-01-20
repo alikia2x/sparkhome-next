@@ -7,8 +7,9 @@ import handleEnter from "lib/onesearch/handleEnter";
 import { suggestionAtom } from "lib/state/suggestion";
 import { useTranslation } from "react-i18next";
 import { searchboxLastInputAtom } from "lib/state/searchboxLastInput";
+import { searchEngineAtom } from "../lib/state/searchEngine.ts";
 
-export default function Search(props: { onFocus: () => void }) {
+export default function Search({ onFocus, style }: {onFocus: () => void, style: "default" | "image"}) {
 	const { t } = useTranslation();
 	const settings = useAtomValue(settingsAtom);
 	const [query, setQuery] = useAtom(queryAtom);
@@ -16,13 +17,12 @@ export default function Search(props: { onFocus: () => void }) {
 	const [_, setLastInput] = useAtom(searchboxLastInputAtom)
 	const suggestions = useAtomValue(suggestionAtom);
 	const searchBoxRef = useRef<HTMLInputElement>(null);
-
-	const style = "default";
+	const engine = useAtomValue(searchEngineAtom);
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key == "Enter") {
 			e.preventDefault();
-			handleEnter(selectedSuggestion, suggestions, query, settings, searchBoxRef);
+			handleEnter(selectedSuggestion, suggestions, query, settings, engine, searchBoxRef);
 			return;
 		} else if (e.key == "ArrowUp") {
 			e.preventDefault();
@@ -58,7 +58,7 @@ export default function Search(props: { onFocus: () => void }) {
 					id="searchBox"
 					type="text"
 					placeholder={t("search.placeholder")}
-					onFocus={props.onFocus}
+					onFocus={onFocus}
 					onKeyDown={handleKeydown}
 					onChange={(e) => {
 						setLastInput(new Date().getTime());
@@ -81,7 +81,7 @@ export default function Search(props: { onFocus: () => void }) {
 					className={
 						`absolute z-1 w-2/3 sm:w-80 md:w-[400px] focus:w-11/12 focus:sm:w-[700px] hover:w-11/12 
                         hover:sm:w-[700px] h-10 rounded-3xl left-1/2 translate-x-[-50%] text-center outline-none 
-                        border-solid border-0 duration-200 pr-2 shadow-md focus:shadow-none` +
+                        border-solid border-0 duration-200 pr-2 shadow-md focus:shadow-none ` +
 						(settings.bgBlur
 							? `bg-[rgba(255,255,255,0.5)] dark:bg-[rgba(24,24,24,0.75)] backdrop-blur-xl 
                         placeholder:text-slate-500 dark:placeholder:text-slate-400 text-slate-900 dark:text-white`
@@ -90,9 +90,19 @@ export default function Search(props: { onFocus: () => void }) {
 					}
 					id="searchBox"
 					type="text"
-					placeholder="placeholder"
-					onFocus={props.onFocus}
+					placeholder={t("search.placeholder")}
+					onFocus={onFocus}
+					onKeyDown={handleKeydown}
+					onChange={(e) => {
+						setLastInput(new Date().getTime());
+						setQuery(() => e.target.value);
+					}}
+					autoComplete="off"
+					autoCorrect="off"
+					autoCapitalize="off"
+					spellCheck="false"
 					ref={searchBoxRef}
+					value={query}
 				/>
 			</div>
 		);

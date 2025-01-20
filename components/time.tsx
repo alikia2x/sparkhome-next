@@ -1,8 +1,54 @@
-"use client";
-
 import { useState, useEffect } from "react";
 
-export default function Time(props: { showSecond: boolean }) {
+export default function Time(props: { showSecond: boolean, style?: "default" | "image" }) {
+	const style = props.style || "default";
+	if (style == "image") {
+		return (
+			<TimeImage showSecond={props.showSecond}/>
+		)
+	}
+	else {
+		return <TimeDefault showSecond={props.showSecond}/>
+	}
+}
+
+function TimeImage(props: { showSecond: boolean }) {
+	const [currentTime, setCurrentTime] = useState(new Date());
+
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setCurrentTime(new Date());
+		}, 150);
+
+		return () => {
+			clearInterval(timer);
+		};
+	}, []);
+
+	const formatTime = () => {
+		const hours = currentTime.getHours().toString().padStart(2, "0");
+		const minutes = currentTime.getMinutes().toString().padStart(2, "0");
+		const seconds = currentTime.getSeconds().toString().padStart(2, "0");
+
+		if (props.showSecond) {
+			return `${hours}:${minutes}:${seconds}`;
+		} else {
+			return `${hours}:${minutes}`;
+		}
+	};
+
+	return (
+		<div
+			className="absolute top-20 lg:top-[10.5rem] short:top-0 translate-x-[-50%]
+            left-1/2 text-white text-4xl text-left text-shadow-lg"
+		>
+			{formatTime()}
+		</div>
+	);
+}
+
+
+function TimeDefault(props: { showSecond: boolean }) {
 	const [currentTime, setCurrentTime] = useState(new Date());
 
 	useEffect(() => {
